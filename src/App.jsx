@@ -1,10 +1,43 @@
-import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-  return <></>;
+import AppLayout from "./components/layout/AppLayout";
+import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
+import Home from "./pages/Home";
+import Countries from "./pages/Countries";
+import Contact from "./pages/Contact";
+
+function App() {
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <AppLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/about",
+          element: <About />,
+        },
+        {
+          path: "/countries",
+          element: <Countries />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={route}></RouterProvider>;
 }
 
 export default App;
