@@ -1,0 +1,36 @@
+a{
+    text-decoration: none;
+}
+
+.selfContainer{
+    display: flex;
+    margin: 5% 10%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.left{
+    width: 50%;
+    
+}
+
+.heading{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.content{
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;   
+}
+
+.right{
+    width: 50%;
+}
+
+.right img{
+    width: 100%;
+}
