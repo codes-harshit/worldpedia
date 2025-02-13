@@ -27,10 +27,30 @@ a{
     line-height: 1.5;   
 }
 
+.bold{
+    font-weight: bold;
+}
+
 .right{
     width: 50%;
 }
 
 .right img{
     width: 100%;
+}
+
+.selfContainerCard{
+    display: flex;
+    margin: 5% 10%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.factcard{
+    min-height: 350px;
+    overflow-y: hidden;
+    
 }
