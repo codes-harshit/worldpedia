@@ -51,6 +51,16 @@ a{
 
 .factcard{
     min-height: 350px;
-    overflow-y: hidden;
-    
+    overflow-y: hidden; 
+}
+
+.SearchContainer{
+    height: 40px;
+    display: flex;
+    margin: 0% 10%;
+    justify-content: space-around;
+}
+
+.searchInput{
+    width: 35%;
 }
