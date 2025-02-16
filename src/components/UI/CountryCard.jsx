@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   return (
@@ -20,9 +21,7 @@ const CountryCard = ({ country }) => {
         </li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">
-          Know more
-        </a>
+        <NavLink to={`/countries/${country.name.common}`}>Know more</NavLink>
       </div>
     </div>
   );
