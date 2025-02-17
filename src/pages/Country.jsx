@@ -14,6 +14,8 @@ const Country = () => {
     });
   }, []);
   console.log(country);
+
+  if (isPending) return <h1>Loading...</h1>;
   return <div>{params.id}</div>;
 };
 
