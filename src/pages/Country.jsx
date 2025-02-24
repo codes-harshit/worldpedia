@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useTransition } from "react";
 import { useParams } from "react-router-dom";
 import { getCountryIndData } from "../api/AxiosApi";
+import CountryDetails from "../components/UI/CountryDetails";
 
 const Country = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const Country = () => {
   console.log(country);
 
   if (isPending) return <h1>Loading...</h1>;
-  return <div>{params.id}</div>;
+  return <> {country && <CountryDetails country={country} />}</>;
 };
 
 export default Country;
