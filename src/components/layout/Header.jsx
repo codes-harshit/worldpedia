@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const [activeTab, setActiveTab] = useState("Home");
+
+  const handleActiveChange = (active) => {
+    setActiveTab(active);
+  };
   return (
     <div class="container">
       <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -18,28 +23,54 @@ const Header = () => {
         <ul class="nav nav-pills">
           <li class="nav-item">
             <NavLink to={"/"}>
-              <a href="#" class="nav-link active" aria-current="page">
+              <a
+                href="#"
+                className={`nav-link ${activeTab === "Home" ? "active" : ""}`}
+                aria-current="page"
+                onClick={() => handleActiveChange("Home")}
+              >
                 Home
               </a>
             </NavLink>
           </li>
           <li class="nav-item">
             <NavLink to={"/about"}>
-              <a href="#" class="nav-link">
+              <a
+                href="#"
+                className={`nav-link ${activeTab === "About" ? "active" : ""}`}
+                aria-current="page"
+                onClick={() => handleActiveChange("About")}
+              >
                 About
               </a>
             </NavLink>
           </li>
           <li class="nav-item">
             <NavLink to={"/countries"}>
-              <a href="#" class="nav-link">
+              <a
+                href="#"
+                className={`nav-link ${
+                  activeTab === "Countries" ? "active" : ""
+                }`}
+                aria-current="page"
+                onClick={() => handleActiveChange("Countries")}
+              >
                 Countries
               </a>
             </NavLink>
           </li>
           <li class="nav-item">
             <NavLink to={"/contact"}>
-              <a class="nav-link">Contact</a>
+              <a
+                href="#"
+                className={`nav-link ${
+                  activeTab === "Contact" ? "active" : ""
+                }`}
+                aria-current="page"
+                onClick={() => handleActiveChange("Contact")}
+              >
+                Contact
+              </a>
             </NavLink>
           </li>
         </ul>
