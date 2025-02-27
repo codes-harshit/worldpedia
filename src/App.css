@@ -64,3 +64,12 @@ a{
 .searchInput{
     width: 35%;
 }
+
+.countryDataContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+}

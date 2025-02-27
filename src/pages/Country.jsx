@@ -14,7 +14,6 @@ const Country = () => {
       setCountry(res.data[0]);
     });
   }, []);
-  console.log(country);
 
   if (isPending) return <h1>Loading...</h1>;
   return <> {country && <CountryDetails country={country} />}</>;
