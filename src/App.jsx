@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Country from "./pages/Country";
 import Errorpage from "./pages/Errorpage";
 
+import CountryContextProvider from "./store/countryStore";
+
 function App() {
   const route = createBrowserRouter([
     {
@@ -43,7 +45,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={route}></RouterProvider>;
+  return (
+    <CountryContextProvider>
+      <RouterProvider router={route}></RouterProvider>;
+    </CountryContextProvider>
+  );
 }
 
 export default App;

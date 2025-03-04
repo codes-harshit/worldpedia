@@ -1,18 +1,14 @@
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useContext, useEffect, useState, useTransition } from "react";
 import { countryData } from "../api/AxiosApi";
 import CountryCard from "../components/UI/CountryCard";
 import SearchFilter from "../components/UI/SearchFilter";
+import { countryContext } from "../store/countryStore";
 
 const Countries = () => {
-  const [countries, setCountries] = useState([]);
-  const [isPending, startTransition] = useTransition();
+  // const [countries, setCountries] = useState([]);
 
-  useEffect(() => {
-    startTransition(async () => {
-      const res = await countryData();
-      setCountries(res.data);
-    });
-  }, []);
+  const { countries, setCountries, isPending, startTransition } =
+    useContext(countryContext);
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
