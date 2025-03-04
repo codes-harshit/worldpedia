@@ -10,6 +10,7 @@ export const countryContext = createContext({
   setFilter: () => {},
   isPending: false,
   startTransition: () => {},
+  filterCountries: [],
 });
 
 const CountryContextProvider = ({ children }) => {
@@ -18,12 +19,31 @@ const CountryContextProvider = ({ children }) => {
   const [filter, setFilter] = useState("all");
   const [isPending, startTransition] = useTransition();
 
+  const searchCounry = (country) => {
+    if (search) {
+      return country.name.common.toLowerCase().includes(search.toLowerCase());
+    }
+    return true;
+  };
+
+  const filterCountry = (country) => {
+    if (filter !== "all") {
+      return country.region === filter;
+    }
+    return true;
+  };
+
+  const filterCountries = countries.filter(
+    (country) => searchCounry(country) && filterCountry(country)
+  );
+
   useEffect(() => {
     startTransition(async () => {
       const res = await countryData();
       setCountries(res.data);
     });
   }, []);
+
   return (
     <countryContext.Provider
       value={{
@@ -34,6 +54,7 @@ const CountryContextProvider = ({ children }) => {
         setSearch,
         filter,
         setFilter,
+        filterCountries,
       }}
     >
       {children}
