@@ -1,17 +1,11 @@
 import React, { useContext, useEffect, useState, useTransition } from "react";
-import { countryData } from "../api/AxiosApi";
 import CountryCard from "../components/UI/CountryCard";
 import SearchFilter from "../components/UI/SearchFilter";
 import { countryContext } from "../store/countryStore";
 
 const Countries = () => {
-  // const [countries, setCountries] = useState([]);
-
-  const { countries, setCountries, isPending, startTransition } =
+  const { countries, setCountries, isPending, filter, search } =
     useContext(countryContext);
-
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("all");
 
   const searchCounry = (country) => {
     if (search) {
@@ -35,14 +29,7 @@ const Countries = () => {
   return (
     <>
       <center className="heading">List of All countries</center>
-      <SearchFilter
-        search={search}
-        setSearch={setSearch}
-        filter={filter}
-        setFilter={setFilter}
-        countries={countries}
-        setCountries={setCountries}
-      />
+      <SearchFilter />
       <ul className="selfContainerCard">
         {filterCountries.map((country, index) => (
           <CountryCard key={index} country={country} />
